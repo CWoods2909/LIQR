@@ -1,0 +1,27 @@
+.login-form {
+    border-radius: 5px;
+    background-color: #f5eeee;
+    padding: 25px;
+    width: 50%;
+    margin: 400px auto;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(223, 188, 188);
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+button {
+    background-color: rgb(207, 116, 100);
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    
+}

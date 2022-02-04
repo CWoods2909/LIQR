@@ -1,0 +1,43 @@
+.nav-bar-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: solid rgb(3, 97, 126);
+    border-radius: 8px;
+    /* height: 84px; */
+    box-sizing: border-box;
+}
+
+a{
+    padding: 10px;
+    text-decoration: none;
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(195, 121, 108);
+    box-sizing: border-box;
+}
+
+a:hover{
+    border-radius: 8px;
+    background-color: rgb(151, 187, 245);
+    box-sizing: border-box;
+    height: auto;
+}
+
+
+/* Profile button */
+.menu-button{
+    margin-left: auto;
+    height: 40px;
+    
+    
+}
+
+.profile-dropdown{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    position: absolute;
+    /* outline: solid red 3px; */
+    right: 10%;
+    top: 0;
+}
