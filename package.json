@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/CWoods2909/LIQR/issues"
   },
-  "homepage": "https://github.com/CWoods2909/LIQR#readme"
+  "homepage": "https://github.com/CWoods2909/LIQR#readme",
+  "dependencies": {
+    "sequelize": "^6.15.0"
+  }
 }
