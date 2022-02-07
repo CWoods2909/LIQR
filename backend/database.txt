@@ -1,1 +1,39 @@
 
+npx dotenv sequelize  model:create --name cocktails --attributes id:integer,name:varchar,liquorType:varchar,userId:integer,ingredients:text,directions:text,imgUrl:string;
+
+npx dotenv sequelize model:create --name drinkList --attributes id:integer,name:string,userId:integer,cocktailId:integer,imgUrl:string;
+
+npx dotenv sequelize db:migrate 
+
+npx dotenv sequelize seed:generate --name cocktailSeeder 
+
+npx dotenv sequelize seed:generate --name drinkListSeeder
+
+{
+    name: `Old Fashioned`, liquorType: `Whiskey`, userId:1, ingredients: `1/2 teaspoon sugar, 3 dashes bitters, 2 ounces whiskey, garnish with orange peel.`, directions: `Add the sugar and bitters to a rocks glass, and stir until the sugar is nearly dissolved. Fill the glass with large ice cubes, add whiskey and gently stir to combine, garnish with orange peel or a cherry.`, imgUrl: ,
+
+    name: `Kentucky Mule`, liquorType: `Whiskey`, userId:1, ingredients: '2 ounces of whiskey, fill rest of glass with ginger beer, garnish with lime wedge.', directions: `Add ice to rocks glass, pour whiskey over ice, fill to top with ginger beer, gently stir to combine, garnish.`, imgUrl: ,
+
+    name: `Boston Sour`, liquorType: `Whiskey`, userId:1, ingredients:`2 ounces of whiskey, 3/4 ounce of lemon juice, 1/2 ounce simple syrup, 1 egg white, garnish with lemon zest twist.` , directions: `Add all ingredients to shaker filled with ice, shake well,dry shake again without ice, strain back into chilled glass, garnish.`, imgUrl: ,
+
+    name: `Gin and tonic`, liquorType: `Gin`, userId:1, ingredients: `2 ounces of gin, fill to the top of glass with tonic, one lime wedge.`, directions: `Add ice to rocks glass, pour gin over ice, fill to top with tonic, squeeze juice of one lime wedge into glass, stir gently to combine.`, imgUrl: ,
+
+    name: `Negroni`, liquorType: `Gin`, userId:1, ingredients: `1 ounce gin, 1 ounce campari, 1 ounce sweet vermouth, garnish with orange peel.`, directions: `Add ice to rocks glass, pour gin, campari, and sweet vermouth into glass, stir gently until well combined, garnish with orange peel.`, imgUrl: ,
+
+    name: `French 75`, liquorType: `Gin`, userId:1, ingredients: `2 ounces of gin, topped with champagne to top of glass, garnish with lime peel.`, directions: `Add gin to champagne flute, fill to the top with champagne, garnish with lime peel.`, imgUrl: ,
+
+    name: `Vodka sour`, liquorType: `Vodka`, userId:1, ingredients: `2 ounces vodka, 1 ounce lemon juice, 1 ounce simple syrup, 2 dashes bitters, 1 egg white, garnish with cherry or lemon wedge.`, directions: `Add vodka, lemon juice, syrup, bitters, and egg white into shaker without ice.  Shake until well combined.  Add ice to shaker, shake again, strain into chilled glass, garnish.`, imgUrl: ,
+
+    name: `White russian`, liquorType: `Vodka`, userId:1, ingredients: `2 ounces kahlua, 1.5 ounces vodka, 2-3 ounces heavy cream.`, directions: `Add ice to low ball glass, pour kahlua and vodka into glass, top with heavy cream.`, imgUrl: ,
+
+    name: `Gimlet`, liquorType: `Vodka`, userId:1, ingredients: `1.5 ounces vodka, 1 ounce lime juice, 1 ounce simple syrup garnish with lime peel.`, directions: `Add ice to shaker, add vodka, lime and simple syrup, shake for 30 seconds, strain into rocks glass filled with ice.`, imgUrl: ,
+
+    name: `Margarita`, liquorType: `Tequila`, userId:1, ingredients: `1.5 ounces tequila, 1 ounce cointreau, 3/4 ounce lime juice garnish with lime wedge.`, directions: `Rim glass with salt, add all ingredients into cocktail shaker with ice, shake until well combined, strain into glass with ice.`, imgUrl: ,
+
+    name: `Paloma`, liquorType: `Tequila`, userId:1, ingredients: `1.5 ounces tequila, 1 ounce grapefruit juice, 1 ounce lime juice, 1 ounce simple syrup.`, directions: `Rim glass with salt, stir all ingredients together in rocks glass, top with ice.`, imgUrl: ,
+
+    name: `Ranch Water`, liquorType: `Tequila`, userId:1, ingredients: `2 ounces tequila, 1.5 ounces lime juice, top with topo chico mineral water.`, directions: `Add tequila to highball glass, mix in the juice of 1 lime, fill glass with ice and top with topo chico mineral water.`, imgUrl: ,
+
+    Need to add 3 rum drinks
+
+}
