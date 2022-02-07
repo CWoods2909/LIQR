@@ -24,10 +24,11 @@ function LoginFormPage() {
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
+
             })
     }
 
-
+    
 
     return (
         <div className='login-form'>
@@ -59,7 +60,6 @@ function LoginFormPage() {
                     </label>
                 </div>
                 <button type='submit'>Log In</button>
-                <button type='submit'>Demo</button>
             </form>
         </div >
     )
