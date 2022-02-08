@@ -3,7 +3,7 @@
     justify-content: space-between;
     padding: 15px;
     box-sizing: border-box;
-    background-color: rgb(111, 86, 139);
+    background-color: rgb(170, 166, 173);
     
 }
 
@@ -36,8 +36,7 @@ a:hover{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: large;
     position: absolute;
-    /* outline: solid red 3px; */
-    right: 10%;
+    right: 35%;
     top: 0;
 }
 

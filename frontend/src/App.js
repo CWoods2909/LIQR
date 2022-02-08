@@ -6,6 +6,7 @@ import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation'
 import Cocktails from './components/Cocktails'
+import CocktailForm from './components/Cocktails/newCocktail';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/cocktails'>
             <Cocktails />
+          </Route>
+          <Route path='/cocktails/new'>
+            <CocktailForm/>
           </Route>
         </Switch>
       )}
