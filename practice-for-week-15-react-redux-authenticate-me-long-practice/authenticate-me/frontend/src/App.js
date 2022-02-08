@@ -7,7 +7,7 @@ import * as sessionActions from './store/session'
 import Navigation from './components/Navigation'
 import Cocktails from './components/Cocktails'
 import CocktailForm from './components/Cocktails/newCocktail';
-
+import SingleCocktail from './components/Cocktails/singleCocktail';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false)
@@ -24,14 +24,21 @@ function App() {
           <Route path="/login">
             <LoginFormPage />
           </Route>
+          
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route path='/cocktails'>
+
+          <Route exact path='/cocktails'>
             <Cocktails />
           </Route>
+
           <Route path='/cocktails/new'>
-            <CocktailForm/>
+            <CocktailForm />
+          </Route>
+
+          <Route path='/cocktails/:id'>
+            <SingleCocktail />
           </Route>
         </Switch>
       )}

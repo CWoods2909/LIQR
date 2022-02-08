@@ -27,6 +27,7 @@ function Navigation({ isLoaded }) {
                 {isLoaded && sessionLinks}
                 <NavLink to='/cocktails'>Cocktails</NavLink>
                 <NavLink to='/cocktails/new'>Add Cocktail</NavLink>
+                
         </div>
     );
 }

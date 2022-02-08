@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createCocktail } from '../../store/cocktails';
 
@@ -8,7 +8,8 @@ const liquor = ['Whiskey', 'Vodka', 'Gin', 'Rum', 'Tequila']
 const CocktailForm = ({ hideForm }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-
+    const user = useSelector((state) => state.session.user)
+    
     const [name, setName] = useState('');
     const [liquorType, setLiquorType] = useState(liquor[0]);
     const [ingredients, setIngredients] = useState('');
@@ -19,6 +20,7 @@ const CocktailForm = ({ hideForm }) => {
         e.preventDefault();
 
         const cocktail = {
+            userId:user.id,
             name,
             liquorType,
             ingredients,
