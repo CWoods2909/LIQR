@@ -19,7 +19,7 @@ const createNewCocktail = (cocktail) => {
 }
 
 const singleCocktail = (cocktail) => {
-    return{
+    return {
         type: SINGLE_COCKTAIL,
         cocktail
     }
@@ -38,14 +38,20 @@ export const getCocktails = () => async (dispatch) => {
 }
 
 //thunk for a single cocktail
-export const getCocktail = (cocktailId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/cocktails/${cocktailId}`)
+export const getCocktail = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/cocktails/${id}`,{
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify()
+    })
     
-    if(response.ok) {
+// console.log(response);
+    if (response.ok) {
         const cocktail = await response.json();
         dispatch(singleCocktail(cocktail))
+        return cocktail
     }
-    return response
+
 }
 
 //thunk to add new
@@ -76,10 +82,15 @@ const cocktailReducer = (state = initialState, action) => {
             newState.cocktails = cocktailList
             return newState;
         }
-        case CREATE_COCKTAIL:{
-            const newState = {...state}
-            newState.cocktails = {...newState.cocktails, [action.cocktail.id]:action.cocktail}
+        case CREATE_COCKTAIL: {
+            const newState = { ...state }
+            newState.cocktails = { ...newState.cocktails, [action.cocktail.id]: action.cocktail }
             return newState
+        }
+        case SINGLE_COCKTAIL: {
+            const newState = {...state}
+            newState.cocktails = {[action.cocktail.id]: action.cocktail}
+            return newState;
         }
         default:
             return state

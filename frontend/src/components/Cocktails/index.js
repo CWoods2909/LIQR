@@ -8,7 +8,7 @@ import './allcocktails.css'
 const AllCocktails = () => {
     const dispatch = useDispatch();
     const cocktails = useSelector((state) => Object.values(state.cocktail.cocktails))
-    console.log(cocktails);
+    
 
     useEffect(() => {
         dispatch(getCocktails())

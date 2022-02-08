@@ -4,27 +4,22 @@ import { useParams } from 'react-router-dom';
 import { getCocktail } from "../../store/cocktails";
 
 const SingleCocktail = () => {
-    const { cocktailId } = useParams();
+    const { id } = useParams();
     const dispatch = useDispatch();
-    const cocktail = useSelector(state => state.cocktail[cocktailId])
-
+    const cocktail = useSelector(state => state.cocktail.cocktails[id])
+    
     useEffect(() => {
-        dispatch(getCocktail(cocktailId))
-    }, [dispatch, cocktailId])
-
+        dispatch(getCocktail(id))
+    }, [dispatch])
+    
+    
     return (
         <div className="single-cocktail">
-
-            {cocktail?.map(({ id, name, liquorType, ingredients, directions, imgUrl }) => (
-                <ul key={id} className="cocktail-inputs">
-                    <h2>{name}</h2>
-                    <li>{liquorType}</li>
-                    <li>{ingredients}</li>
-                    <li>{directions}</li>
-                    <li>{imgUrl}</li>
-                </ul>
-            ))
-            }
+            <h2>{cocktail?.name}</h2>
+            <p>{cocktail?.liquorType}</p>
+            <p>{cocktail?.ingredients}</p>
+            <p>{cocktail?.directions}</p>
+            <p>{cocktail?.imgUrl}</p>
         </div>
     )
 }
