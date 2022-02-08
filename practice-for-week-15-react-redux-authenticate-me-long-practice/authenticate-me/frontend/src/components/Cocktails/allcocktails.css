@@ -1,0 +1,8 @@
+.drinkList {
+  margin-top: 15px;
+}
+.drinkContainer {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
