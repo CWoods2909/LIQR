@@ -20,14 +20,13 @@ const AllCocktails = () => {
             <div className="drinkContainer">
                 {cocktails?.map(({ id, name,liquorType }) => (
                     <div className="drinkList">
-                        <a key={id} href='/cocktails'>{name}</a>
+                        <a key={id} href={`/cocktails/${id}`}>{name}</a>
                         <p>{liquorType}</p>
                     </div>
                 ))
                 }
             </div>
         </>
-
     )
 }
 export default AllCocktails

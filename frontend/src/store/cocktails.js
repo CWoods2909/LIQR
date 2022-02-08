@@ -1,3 +1,4 @@
+import { csrfFetch } from './csrf';
 
 const GET_ALL_COCKTAILS = 'cocktail/getAllCocktails';
 const CREATE_COCKTAIL = 'cocktail/createCocktail'
@@ -26,7 +27,7 @@ const singleCocktail = (cocktail) => {
 
 //thunk for all
 export const getCocktails = () => async (dispatch) => {
-    const response = await fetch('/api/cocktails');
+    const response = await csrfFetch('/api/cocktails');
 
     if (response.ok) {
         const cocktails = await response.json();
@@ -38,7 +39,7 @@ export const getCocktails = () => async (dispatch) => {
 
 //thunk for a single cocktail
 export const getCocktail = (cocktailId) => async (dispatch) => {
-    const response = await fetch(`/api/cocktails/${cocktailId}`)
+    const response = await csrfFetch(`/api/cocktails/${cocktailId}`)
     
     if(response.ok) {
         const cocktail = await response.json();
@@ -49,7 +50,7 @@ export const getCocktail = (cocktailId) => async (dispatch) => {
 
 //thunk to add new
 export const createCocktail = (cocktail) => async (dispatch) => {
-    const response = await fetch('/api/cocktails/new', {
+    const response = await csrfFetch('/api/cocktails/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cocktail)
@@ -58,8 +59,8 @@ export const createCocktail = (cocktail) => async (dispatch) => {
     if (response.ok) {
         const cocktail = await response.json();
         dispatch(createNewCocktail(cocktail))
+        return cocktail
     }
-    return cocktail
 }
 
 
@@ -77,7 +78,8 @@ const cocktailReducer = (state = initialState, action) => {
         }
         case CREATE_COCKTAIL:{
             const newState = {...state}
-
+            newState.cocktails = {...newState.cocktails, [action.cocktail.id]:action.cocktail}
+            return newState
         }
         default:
             return state
