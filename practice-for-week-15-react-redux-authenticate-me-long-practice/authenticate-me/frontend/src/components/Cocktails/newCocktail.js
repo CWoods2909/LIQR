@@ -30,14 +30,14 @@ const CocktailForm = ({ hideForm }) => {
         let newCocktail = await dispatch(createCocktail(cocktail));
         if (newCocktail) {
             history.push('/cocktails')
-            hideForm()
+            
         }
 
     }
 
     const cancelSubmit = (e) => {
         e.preventDefault()
-        hideForm()
+        history.push('/cocktails')
     }
 
     return (

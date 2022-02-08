@@ -23,7 +23,10 @@ router.post('/new', asyncHandler(async(req, res)=>{
 
 //get single drink
 router.get('/:id', asyncHandler(async(req, res)=>{
-    const cocktail = await Cocktail.findOne(req.params.id)
+    
+    let cocktail = await Cocktail.findByPk(req.params.id)
+    
+    
     return res.json(cocktail)
 }))
 
