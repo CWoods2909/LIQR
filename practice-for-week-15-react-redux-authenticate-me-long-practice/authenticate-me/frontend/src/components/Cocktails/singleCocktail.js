@@ -1,6 +1,6 @@
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getCocktail, removeCocktail, } from "../../store/cocktails";
 
 
@@ -9,17 +9,17 @@ const SingleCocktail = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const cocktail = useSelector(state => state.cocktail.cocktails[id])
-    
+    const history = useHistory()
     useEffect(() => {
         dispatch(getCocktail(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     
     
     const handleDelete = (id) =>{
         if(window.confirm("Are you sure you want to delete this cocktail?"))
         dispatch(removeCocktail(id))
-        
+        history.push('/cocktails')
     }
     
     return (
