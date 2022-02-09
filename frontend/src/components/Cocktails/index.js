@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 // import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { getCocktails } from '../../store/cocktails';
 import './allcocktails.css'
@@ -20,7 +21,7 @@ const AllCocktails = () => {
             <div className="drinkContainer">
                 {cocktails?.map(({ id, name,liquorType }) => (
                     <div className="drinkList">
-                        <a key={id} href={`/cocktails/${id}`}>{name}</a>
+                        <NavLink key={id} to={`/cocktails/${id}`}>{name}</NavLink>
                         <p>{liquorType}</p>
                     </div>
                 ))
