@@ -1,10 +1,10 @@
 import { csrfFetch } from './csrf';
 
-const GET_ALL_COCKTAILS = 'cocktail/getAllCocktails';
-const CREATE_COCKTAIL = 'cocktail/createCocktail'
-const SINGLE_COCKTAIL = 'cocktail/singleCocktail'
-const DELETE_COCKTAIL = 'cocktail/deleteCocktail'
-const EDIT_COCKTAIL = 'cocktail/editCocktail'
+const GET_ALL_COCKTAILS = 'cocktail/GET_ALL_COCKTAILS';
+const CREATE_COCKTAIL = 'cocktail/CREATE_COCKTAIL'
+const SINGLE_COCKTAIL = 'cocktail/SINGLE_COCKTAIL'
+const DELETE_COCKTAIL = 'cocktail/DELETE_COCKTAIL'
+const EDIT_COCKTAIL = 'cocktail/EDIT_COCKTAIL'
 
 const editSingleCocktail = (cocktail) => {
     return {

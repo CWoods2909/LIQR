@@ -34,8 +34,9 @@ router.delete('/:id', asyncHandler(async(req, res) =>{
 }));
 
 //edit a cocktail
-router.put('/:id/edit', asyncHandler(async(req, res) => {
-    const cocktail = await Cocktail.findByPk(req.params.id)
+router.put('/:id', asyncHandler(async(req, res) => {
+    const cocktail = req.body
+    await Cocktail.update(cocktail, {where:{id:req.params.id}})
     return res.json(cocktail)
 }))
 module.exports = router;
