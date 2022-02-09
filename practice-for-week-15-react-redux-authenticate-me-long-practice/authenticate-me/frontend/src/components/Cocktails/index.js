@@ -21,8 +21,8 @@ const AllCocktails = () => {
             <div className="drinkContainer">
                 {cocktails?.map(({ id, name,liquorType }) => (
                     <div className="drinkList">
-                        <NavLink key={id} to={`/cocktails/${id}`}>{name}</NavLink>
-                        <p>{liquorType}</p>
+                        <NavLink key={id} className='drinks' to={`/cocktails/${id}`}>{name}</NavLink>
+                        <p className='liquor-type'>{liquorType}</p>
                     </div>
                 ))
                 }

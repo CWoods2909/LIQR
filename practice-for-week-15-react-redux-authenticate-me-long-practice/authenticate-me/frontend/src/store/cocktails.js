@@ -133,12 +133,12 @@ const cocktailReducer = (state = initialState, action) => {
             newState.cocktails = {[action.cocktail.id]: action.cocktail}
             return newState;
         }
-        case DELETE_COCKTAIL:{
-            return state.cocktails.filter(cocktail => cocktail.id !== action.cocktail.id)
-        }   
-        case EDIT_COCKTAIL:{
+        // case DELETE_COCKTAIL:{
+        //     return state.cocktails.filter(cocktail => cocktail.id !== action.cocktail.id)
+        // }   
+        // case EDIT_COCKTAIL:{
 
-        }
+        // }
         default:
             return state
     }

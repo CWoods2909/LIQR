@@ -1,10 +1,47 @@
 .drinkList {
   margin-top: 15px;
+  width: 20%;
+  
 }
 .drinkContainer {
-  display: inline-block;
+  display: flex;
   font-size: 20px;
-  padding: 20px;
+  height: 900px;
+  width: 70%;
+  background-color: tan;
+  margin-left: 15%;
+  flex-wrap: wrap;
+  overflow: auto;
+  box-shadow:
+  /* The top layer shadow */
+  0 -1px 1px rgba(0,0,0,0.15),
+  /* The second layer */
+  0 -10px 0 -5px tan,
+  /* The second layer shadow */
+  0 -10px 1px -4px rgba(0,0,0,0.15),
+   /* The third layer */
+  0 -20px 0 -10px tan,
+  /* The third layer shadow */
+  0 -20px 1px -9px rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgb(100, 96, 96);
+  border-left: 1px solid rgb(100, 96, 96);
+  border-right: 1px solid rgb(100, 96, 96);
+}
+
+.drinks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.liquor-type{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  margin-left: 46%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .new-cocktail-form{
