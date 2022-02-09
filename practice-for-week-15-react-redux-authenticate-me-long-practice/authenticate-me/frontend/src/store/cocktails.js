@@ -3,6 +3,15 @@ import { csrfFetch } from './csrf';
 const GET_ALL_COCKTAILS = 'cocktail/getAllCocktails';
 const CREATE_COCKTAIL = 'cocktail/createCocktail'
 const SINGLE_COCKTAIL = 'cocktail/singleCocktail'
+const DELETE_COCKTAIL = 'cocktail/deleteCocktail'
+const EDIT_COCKTAIL = 'cocktail/editCocktail'
+
+const editSingleCocktail = (cocktail) => {
+    return {
+        type: EDIT_COCKTAIL,
+        cocktail
+    }
+}
 
 const fetchCocktails = (cocktails) => {
     return {
@@ -25,13 +34,34 @@ const singleCocktail = (cocktail) => {
     }
 }
 
+const deleteCocktail = (cocktail) => {
+    return{
+        type: DELETE_COCKTAIL,
+        cocktail
+    }
+}
+
+//thunk to edit
+export const editCocktail = (cocktail, id) => async (dispatch) =>{
+    const response = await csrfFetch(`/api/cocktails/${id}/edit`,{
+        method: 'PUT',
+        headers:{ 'Content-Type': 'application/json' },
+        body: JSON.stringify(cocktail)
+    })
+    if(response.ok){
+        const cocktail = await response.json()
+        dispatch(editSingleCocktail(cocktail))
+        return cocktail
+    }
+
+}
+
 //thunk for all
 export const getCocktails = () => async (dispatch) => {
     const response = await csrfFetch('/api/cocktails');
 
     if (response.ok) {
         const cocktails = await response.json();
-
         dispatch(fetchCocktails(cocktails))
         return cocktails
     }
@@ -44,8 +74,6 @@ export const getCocktail = (id) => async (dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify()
     })
-    
-// console.log(response);
     if (response.ok) {
         const cocktail = await response.json();
         dispatch(singleCocktail(cocktail))
@@ -66,6 +94,19 @@ export const createCocktail = (cocktail) => async (dispatch) => {
         const cocktail = await response.json();
         dispatch(createNewCocktail(cocktail))
         return cocktail
+    }
+}
+
+//thunk to delete
+export const removeCocktail = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/cocktails/${id}`,{
+        method: 'DELETE'
+    })
+
+    if(response.ok){
+        const deleted = await response.json()
+        
+        dispatch(deleteCocktail(deleted, id))
     }
 }
 
@@ -92,6 +133,9 @@ const cocktailReducer = (state = initialState, action) => {
             newState.cocktails = {[action.cocktail.id]: action.cocktail}
             return newState;
         }
+        // case DELETE_COCKTAIL:{
+        //     return state.cocktails.filter(cocktail => cocktail.id !== action.cocktail.id)
+        // }   
         default:
             return state
     }

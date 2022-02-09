@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { getCocktail } from "../../store/cocktails";
+import { getCocktail, removeCocktail, } from "../../store/cocktails";
+
+
 
 const SingleCocktail = () => {
     const { id } = useParams();
@@ -11,7 +13,14 @@ const SingleCocktail = () => {
     useEffect(() => {
         dispatch(getCocktail(id))
     }, [dispatch])
+
     
+    
+    const handleDelete = (id) =>{
+        if(window.confirm("Are you sure you want to delete this cocktail?"))
+        dispatch(removeCocktail(id))
+        
+    }
     
     return (
         <div className="single-cocktail">
@@ -20,6 +29,8 @@ const SingleCocktail = () => {
             <p>{cocktail?.ingredients}</p>
             <p>{cocktail?.directions}</p>
             <p>{cocktail?.imgUrl}</p>
+            <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
+            <a href={`/cocktails/${id}/edit`}>Edit</a>
         </div>
     )
 }
