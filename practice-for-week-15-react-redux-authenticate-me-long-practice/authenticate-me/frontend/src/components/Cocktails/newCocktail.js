@@ -2,6 +2,7 @@ import { useState} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createCocktail } from '../../store/cocktails';
+import './allcocktails.css'
 
 const liquor = ['Whiskey', 'Vodka', 'Gin', 'Rum', 'Tequila']
 
@@ -50,31 +51,29 @@ const CocktailForm = ({ hideForm }) => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <select value={liquorType} onChange={(e) => setLiquorType(e.target.value)}>
-                    {liquor.map(ele =>
-                        <option key={ele}>{ele}</option>
-                    )}
-                </select>
-                <input
-                    type='text'
+                <textarea
                     placeholder='Ingredients'
                     required
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}
                 />
-                <input
-                    type='text'
+                <textarea
                     placeholder='How to prepare'
                     required
                     value={directions}
                     onChange={(e) => setDirections(e.target.value)}
                 />
-                <input
-                    type='text'
-                    placeholder='Cocktail Image'
-                    value={imgUrl}
-                    onChange={(e) => setImgUrl(e.target.value)}
-                />
+                    <input
+                        type='text'
+                        placeholder='Cocktail Image'
+                        value={imgUrl}
+                        onChange={(e) => setImgUrl(e.target.value)}
+                    />
+                <select value={liquorType} onChange={(e) => setLiquorType(e.target.value)}>
+                    {liquor.map(ele =>
+                        <option key={ele}>{ele}</option>
+                    )}
+                </select>
                 <button type='submit'>Create Cocktail</button>
                 <button type='button' onClick={cancelSubmit}>Cancel</button>
             </form>
