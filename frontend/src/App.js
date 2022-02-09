@@ -8,6 +8,9 @@ import Navigation from './components/Navigation'
 import Cocktails from './components/Cocktails'
 import CocktailForm from './components/Cocktails/newCocktail';
 import SingleCocktail from './components/Cocktails/singleCocktail';
+import EditCocktailForm from './components/Cocktails/editCocktail'
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false)
@@ -37,8 +40,12 @@ function App() {
             <CocktailForm />
           </Route>
 
-          <Route path='/cocktails/:id'>
+          <Route exact path='/cocktails/:id'>
             <SingleCocktail />
+          </Route>
+
+          <Route path='/cocktails/:id/edit'>
+          <EditCocktailForm />
           </Route>
         </Switch>
       )}
