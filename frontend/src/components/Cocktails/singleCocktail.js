@@ -30,7 +30,7 @@ const SingleCocktail = () => {
             <p>{cocktail?.directions}</p>
             <p>{cocktail?.imgUrl}</p>
             <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
-            <a href={`/cocktails/${id}/edit`}>Edit</a>
+            <a href={`/cocktails/${id}`}>Edit</a>
         </div>
     )
 }

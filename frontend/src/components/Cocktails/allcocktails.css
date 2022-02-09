@@ -6,3 +6,18 @@
   font-size: 20px;
   padding: 20px;
 }
+
+.new-cocktail-form{
+  border-radius: 5px;
+  background-color: #f5eeee;
+  padding: 25px;
+  width: 25%;
+  margin: 400px auto;
+}
+textarea{
+  resize: none;
+  height: 150px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 5px;
+}

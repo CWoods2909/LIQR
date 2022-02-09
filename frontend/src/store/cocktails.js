@@ -43,7 +43,7 @@ const deleteCocktail = (cocktail) => {
 
 //thunk to edit
 export const editCocktail = (cocktail, id) => async (dispatch) =>{
-    const response = await csrfFetch(`/api/cocktails/${id}/edit`,{
+    const response = await csrfFetch(`/api/cocktails/${id}`,{
         method: 'PUT',
         headers:{ 'Content-Type': 'application/json' },
         body: JSON.stringify(cocktail)
@@ -133,9 +133,12 @@ const cocktailReducer = (state = initialState, action) => {
             newState.cocktails = {[action.cocktail.id]: action.cocktail}
             return newState;
         }
-        // case DELETE_COCKTAIL:{
-        //     return state.cocktails.filter(cocktail => cocktail.id !== action.cocktail.id)
-        // }   
+        case DELETE_COCKTAIL:{
+            return state.cocktails.filter(cocktail => cocktail.id !== action.cocktail.id)
+        }   
+        case EDIT_COCKTAIL:{
+
+        }
         default:
             return state
     }

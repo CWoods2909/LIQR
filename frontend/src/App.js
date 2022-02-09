@@ -44,7 +44,7 @@ function App() {
             <SingleCocktail />
           </Route>
 
-          <Route path='/cocktails/:id/edit'>
+          <Route path='/cocktails/:id'>
           <EditCocktailForm />
           </Route>
         </Switch>
