@@ -64,7 +64,7 @@ textarea{
   border-radius: 5px;
   background-color: rgb(93, 112, 131);
     padding: 25px;
-    width: 90%;
+    width: 60%;
     margin: 200px auto;
 }
 
@@ -92,4 +92,9 @@ textarea{
     width: auto;
     height: 800px;
     justify-content: center;
+}
+
+li{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
 }

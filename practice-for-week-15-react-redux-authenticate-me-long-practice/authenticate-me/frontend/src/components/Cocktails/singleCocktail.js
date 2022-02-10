@@ -37,9 +37,11 @@ const SingleCocktail = () => {
                     style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
                 ></div>
                 <h2>{cocktail?.name}</h2>
-                <p>{cocktail?.liquorType}</p>
-                <p>{cocktail?.ingredients}</p>
-                <p>{cocktail?.directions}</p>
+                <ul className="cocktail-details">
+                <li>Liquor Type: {cocktail?.liquorType}</li>
+                <li>Ingredients: {cocktail?.ingredients}</li>
+                <li>How To Make: {cocktail?.directions}</li>
+                </ul>
                 <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
                 <button type='button' onClick={editForm}>Edit</button>
                 {closeForm && (<EditCocktailForm openForm={openForm} />)}
@@ -52,12 +54,13 @@ const SingleCocktail = () => {
                     className="single-cocktail-image"
                     style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
                 ></div>
-                <div className="cocktail-info">
                     <h2>{cocktail?.name}</h2>
-                    <p>Liquor Type:{cocktail?.liquorType}</p>
-                    <p>Ingredients:{cocktail?.ingredients}</p>
-                    <p>How to make:{cocktail?.directions}</p>
-                </div>
+                    <ul className="cocktail-details">
+                    <li>Liquor Type: {cocktail?.liquorType}</li>
+                    <li>Ingredients: {cocktail?.ingredients}</li>
+                    <li>How to make: {cocktail?.directions}</li>
+                    </ul>
+                
             </div>
         )
     }
