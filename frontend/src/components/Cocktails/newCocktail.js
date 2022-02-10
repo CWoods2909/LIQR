@@ -1,12 +1,13 @@
-import { useState} from 'react';
+import { useEffect,useState} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { useHistory,Redirect } from 'react-router-dom';
 import { createCocktail } from '../../store/cocktails';
+
 import './allcocktails.css'
 
 const liquor = ['Whiskey', 'Vodka', 'Gin', 'Rum', 'Tequila']
 
-const CocktailForm = ({ hideForm }) => {
+const CocktailForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
@@ -17,6 +18,17 @@ const CocktailForm = ({ hideForm }) => {
     const [ingredients, setIngredients] = useState('');
     const [directions, setDirections] = useState('');
     const [imgUrl, setImgUrl] = useState('')
+    const [errors, setErrors] = useState([]);
+    
+    useEffect(() =>{
+        const validate = [];
+
+        if(name.length < 3) validate.push('Cocktail name must be more than 3 charachters.');
+        if(name.length > 50) validate.push('Cocktail name must be less than 50 charachters.')
+        if(ingredients.length === 0) validate.push('Please provide the ingredients for your cocktail.');
+        if(directions.length === 0) validate.push('Please provide the directions for your cocktail.');
+        setErrors(validate)
+    },[name,ingredients,directions])
     
     if(!user){
         return(
@@ -49,9 +61,17 @@ const CocktailForm = ({ hideForm }) => {
         history.push('/cocktails')
     }
 
+
+
     return (
         <section className="new-cocktail-form">
             <form onSubmit={handleSubmit} className="cocktail-form">
+            <h2>Create Your Cocktail</h2>
+                <ul className='errors'>
+                    {errors.map((error)=>(
+                        <li key={error}>{error}</li>
+                    ))}
+                </ul>
                 <input
                     type='text'
                     placeholder='Cocktail name'
@@ -82,7 +102,7 @@ const CocktailForm = ({ hideForm }) => {
                         <option key={ele}>{ele}</option>
                     )}
                 </select>
-                <button type='submit'>Create Cocktail</button>
+                <button type='submit' disabled={errors.length > 0}>Create Cocktail</button>
                 <button type='button' onClick={cancelSubmit}>Cancel</button>
             </form>
         </section>
