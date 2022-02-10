@@ -4,14 +4,6 @@ const GET_ALL_COCKTAILS = 'cocktail/GET_ALL_COCKTAILS';
 const CREATE_COCKTAIL = 'cocktail/CREATE_COCKTAIL'
 const SINGLE_COCKTAIL = 'cocktail/SINGLE_COCKTAIL'
 const DELETE_COCKTAIL = 'cocktail/DELETE_COCKTAIL'
-const EDIT_COCKTAIL = 'cocktail/EDIT_COCKTAIL'
-
-const editSingleCocktail = (cocktail) => {
-    return {
-        type: EDIT_COCKTAIL,
-        cocktail
-    }
-}
 
 const fetchCocktails = (cocktails) => {
     return {
@@ -42,7 +34,7 @@ const deleteCocktail = (cocktail) => {
 }
 
 //thunk to edit
-export const editCocktail = (cocktail, id) => async (dispatch) =>{
+export const editCocktail = (cocktail,id) => async (dispatch) =>{
     const response = await csrfFetch(`/api/cocktails/${id}`,{
         method: 'PUT',
         headers:{ 'Content-Type': 'application/json' },
@@ -50,7 +42,7 @@ export const editCocktail = (cocktail, id) => async (dispatch) =>{
     })
     if(response.ok){
         const cocktail = await response.json()
-        dispatch(editSingleCocktail(cocktail))
+        dispatch(singleCocktail(cocktail))
         return cocktail
     }
 
@@ -100,13 +92,14 @@ export const createCocktail = (cocktail) => async (dispatch) => {
 //thunk to delete
 export const removeCocktail = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/cocktails/${id}`,{
-        method: 'DELETE'
+        method: 'DELETE',
+        headers:{'Content-Type': 'application/json'}
     })
 
     if(response.ok){
         const deleted = await response.json()
-        
         dispatch(deleteCocktail(deleted, id))
+        return deleted
     }
 }
 
@@ -135,12 +128,9 @@ const cocktailReducer = (state = initialState, action) => {
         }
         case DELETE_COCKTAIL:{
             const newState = { ...state };
-            delete newState[action.cocktail];
+            delete newState[action.cocktail.id];
             return newState;
         }   
-        // case EDIT_COCKTAIL:{
-
-        // }
         default:
             return state
     }

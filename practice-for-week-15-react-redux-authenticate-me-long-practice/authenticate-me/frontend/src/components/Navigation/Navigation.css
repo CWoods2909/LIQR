@@ -1,6 +1,7 @@
 .nav-bar-container{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px;
     box-sizing: border-box;
     background-color: rgb(93, 112, 131);
@@ -13,7 +14,7 @@ a{
     font-size: x-large;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 a:hover{
@@ -21,6 +22,11 @@ a:hover{
     background-color: rgb(151, 187, 245);
     box-sizing: border-box;
     height: auto;
+}
+
+.nav-bar-right{
+    display: flex;
+    align-items: center;
 }
 
 
@@ -36,13 +42,29 @@ a:hover{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: large;
     position: absolute;
-    right: 35%;
+    right: 20%;
     top: 0;
+}
+.image-container{
+    display: flex;
+    width: 400px;
+    height: 400px;
+    
+}
+.image{
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    /* background-repeat:no-repeat; */
+    width: 100%;
+    height: 80%;
+    margin: auto 0px;
+    justify-content: space-around;
 }
 
 html{
     height: auto;
-    background-color: slategray;
+    background-color: rgb(240, 240, 219);
     margin: 0;
 }
 

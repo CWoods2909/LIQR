@@ -1,6 +1,6 @@
 import { useState} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory,Redirect } from 'react-router-dom';
 import { createCocktail } from '../../store/cocktails';
 import './allcocktails.css'
 
@@ -11,12 +11,19 @@ const CocktailForm = ({ hideForm }) => {
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
     
+    
     const [name, setName] = useState('');
     const [liquorType, setLiquorType] = useState(liquor[0]);
     const [ingredients, setIngredients] = useState('');
     const [directions, setDirections] = useState('');
     const [imgUrl, setImgUrl] = useState('')
-
+    
+    if(!user){
+        return(
+            <Redirect to='/'/>
+        )
+    }
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -28,6 +35,7 @@ const CocktailForm = ({ hideForm }) => {
             directions,
             imgUrl
         };
+
         let newCocktail = await dispatch(createCocktail(cocktail));
         if (newCocktail) {
             history.push('/cocktails')

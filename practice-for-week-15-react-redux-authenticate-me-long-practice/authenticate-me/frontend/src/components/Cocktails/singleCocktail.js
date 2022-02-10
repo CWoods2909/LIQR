@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import { getCocktail, removeCocktail, } from "../../store/cocktails";
-
+import EditCocktailForm from './editCocktail'
 
 
 const SingleCocktail = () => {
@@ -10,15 +10,20 @@ const SingleCocktail = () => {
     const dispatch = useDispatch();
     const cocktail = useSelector(state => state.cocktail.cocktails[id])
     const history = useHistory()
+
     useEffect(() => {
         dispatch(getCocktail(id))
-    }, [dispatch, id])
+    }, [dispatch])
 
-    
-    
-    const handleDelete = (id) =>{
-        if(window.confirm("Are you sure you want to delete this cocktail?"))
-        dispatch(removeCocktail(id))
+    const editForm = (e) => {
+        openForm(true);
+    }
+
+    const [closeForm, openForm] = useState(false);
+
+
+    const handleDelete = async (id) =>{
+        await dispatch(removeCocktail(id))
         history.push('/cocktails')
     }
     
@@ -30,7 +35,9 @@ const SingleCocktail = () => {
             <p>{cocktail?.directions}</p>
             <p>{cocktail?.imgUrl}</p>
             <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
-            <a href={`/cocktails/${id}`}>Edit</a>
+            <button type='button' onClick={editForm}>Edit</button>
+            {closeForm && (<EditCocktailForm />)}
+            
         </div>
     )
 }
