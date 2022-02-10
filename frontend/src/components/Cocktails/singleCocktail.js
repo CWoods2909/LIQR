@@ -10,7 +10,7 @@ const SingleCocktail = () => {
     const dispatch = useDispatch();
     const cocktail = useSelector(state => state.cocktail.cocktails[id])
     const user = useSelector(state => state.session.user)
-    
+
     const history = useHistory()
 
     useEffect(() => {
@@ -29,36 +29,38 @@ const SingleCocktail = () => {
         history.push('/cocktails')
     }
 
-    if(cocktail.userId === user.id){
+    if (cocktail.userId === user.id) {
         return (
             <div className="single-cocktail">
-            <div
-                className="single-cocktail-image"
-                style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
+                <div
+                    className="single-cocktail-image"
+                    style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
                 ></div>
-            <h2>{cocktail?.name}</h2>
-            <p>{cocktail?.liquorType}</p>
-            <p>{cocktail?.ingredients}</p>
-            <p>{cocktail?.directions}</p>
-            <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
-            <button type='button' onClick={editForm}>Edit</button>
-            {closeForm && (<EditCocktailForm openForm={openForm}/>)}
-        </div>
-    )
-}else{
-    return(
-        <div className="single-cocktail">
-        <div
-            className="single-cocktail-image"
-            style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
-            ></div>
-        <h2>{cocktail?.name}</h2>
-        <p>{cocktail?.liquorType}</p>
-        <p>{cocktail?.ingredients}</p>
-        <p>{cocktail?.directions}</p>
-        </div>
-    )
-}
+                <h2>{cocktail?.name}</h2>
+                <p>{cocktail?.liquorType}</p>
+                <p>{cocktail?.ingredients}</p>
+                <p>{cocktail?.directions}</p>
+                <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
+                <button type='button' onClick={editForm}>Edit</button>
+                {closeForm && (<EditCocktailForm openForm={openForm} />)}
+            </div>
+        )
+    } else {
+        return (
+            <div className="single-cocktail">
+                <div
+                    className="single-cocktail-image"
+                    style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
+                ></div>
+                <div className="cocktail-info">
+                    <h2>{cocktail?.name}</h2>
+                    <p>Liquor Type:{cocktail?.liquorType}</p>
+                    <p>Ingredients:{cocktail?.ingredients}</p>
+                    <p>How to make:{cocktail?.directions}</p>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default SingleCocktail

@@ -15,7 +15,7 @@ function LoginFormPage() {
     if (sessionUser) return (
         <Redirect to='/' />
     )
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,7 +29,7 @@ function LoginFormPage() {
             })
     }
 
-    
+
 
     return (
         <div className='login-form'>
@@ -46,7 +46,7 @@ function LoginFormPage() {
                             value={credential}
                             onChange={(e) => setCredential(e.target.value)}
                             placeholder='Username/Email'
-                            required />
+                        />
                     </label>
                 </div>
                 <div className='row'>
@@ -55,7 +55,6 @@ function LoginFormPage() {
                             type='password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required
                             placeholder='Password'
                         />
                     </label>
