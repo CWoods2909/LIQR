@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editCocktail } from '../../store/cocktails';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-const EditCocktailForm = ({ hideForm }) => {
+const EditCocktailForm = ({ openForm }) => {
     const { id } = useParams();
     const cocktails = useSelector(state => state.cocktail.cocktails[id])
     const dispatch = useDispatch();
     const liquor = ['Whiskey', 'Vodka', 'Gin', 'Rum', 'Tequila']
 
-    const history = useHistory()
 
     const [name, setName] = useState(cocktails?.name);
     const [liquorType, setLiquorType] = useState(cocktails?.liquorType);
@@ -17,8 +16,6 @@ const EditCocktailForm = ({ hideForm }) => {
     const [directions, setDirections] = useState(cocktails?.directions);
     const [imgUrl, setImgUrl] = useState(cocktails?.imgUrl);
 
-
-    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -31,14 +28,13 @@ const EditCocktailForm = ({ hideForm }) => {
         }
         let updatedCocktail = await dispatch(editCocktail(cocktail, id))
         if (updatedCocktail) {
-            history.push(`/cocktails`)
+            openForm(false)
         }
     }
 
     const cancelSubmit = (e) => {
         e.preventDefault()
-
-        return history.push(`/cocktails`)
+        openForm(false)
     }
 
     return (
@@ -74,7 +70,7 @@ const EditCocktailForm = ({ hideForm }) => {
                     type='text'
                     value={imgUrl}
                     onChange={(e) => setImgUrl(e.target.value)}
-                    placeholder='image'
+                    placeholder='Cocktail image(please use image address)'
                 />
                 <button type='submit' onClick={handleSubmit}>Submit edit</button>
                 <button type='button' onClick={cancelSubmit}>Cancel</button>

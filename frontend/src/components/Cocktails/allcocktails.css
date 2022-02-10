@@ -12,16 +12,17 @@
   margin-left: 15%;
   flex-wrap: wrap;
   overflow: auto;
+
   box-shadow:
-  /* The top layer shadow */
+  /* top shadow */
   0 -1px 1px rgba(0,0,0,0.15),
-  /* The second layer */
+  /* second layer */
   0 -10px 0 -5px tan,
-  /* The second layer shadow */
+  /* second shadow */
   0 -10px 1px -4px rgba(0,0,0,0.15),
-   /* The third layer */
+   /* third layer */
   0 -20px 0 -10px tan,
-  /* The third layer shadow */
+  /* third shadow */
   0 -20px 1px -9px rgba(0,0,0,0.15);
   border-bottom: 1px solid rgb(100, 96, 96);
   border-left: 1px solid rgb(100, 96, 96);
@@ -65,4 +66,24 @@ textarea{
     padding: 25px;
     width: 15%;
     margin: 400px auto;
+}
+
+.single-cocktail-image{
+  display: flex;
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    width: 60%;
+    height: 55%;
+    margin: auto 0px;
+    border-radius: 15px;
+    
+}
+
+.single-cocktail{
+  
+    
+    width: 1000px;
+    height: 1000px;
+    
 }

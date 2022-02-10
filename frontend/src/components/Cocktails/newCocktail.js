@@ -73,7 +73,7 @@ const CocktailForm = ({ hideForm }) => {
                 />
                     <input
                         type='text'
-                        placeholder='Cocktail Image'
+                        placeholder='Cocktail Image(please use image address)'
                         value={imgUrl}
                         onChange={(e) => setImgUrl(e.target.value)}
                     />
