@@ -38,7 +38,6 @@ router.put('/:id', asyncHandler(async (req, res) => {
     const { name, ingredients, liquorType, directions, imgUrl } = req.body
     await Cocktail.update({ name, ingredients, liquorType, directions, imgUrl }, { where: { id: req.params.id } })
     const cocktail = await Cocktail.findByPk(req.params.id)
-    // console.log(cocktail);
     return res.json(cocktail)
 }))
 module.exports = router;

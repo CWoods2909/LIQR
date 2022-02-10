@@ -3,10 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-// import barImage from '../../images/bar-image.jpg'
-// import longIsland from '../../images/long-island.jpg'
-// import marg from '../../images/margarita.jpg'
-// import mojito from '../../images/mojito.jpg'
+import DemoUser from './demoUser';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -21,7 +18,9 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/signup">Sign Up</
+                NavLink>
+                <DemoUser />
             </>
         );
     }
@@ -37,19 +36,7 @@ function Navigation({ isLoaded }) {
                     <NavLink to='/cocktails/new'>Add Cocktail</NavLink>
                 </div>
             </div>
-            {/* <div className='image-container'>
-            <div className="image" style={{ backgroundImage: `url(${barImage})` }} />
-            </div> */}
-            {/* <div className='image-container'>
-                <div className='image' style={{ backgroundImage: `url(${longIsland})` }} />
-
-
-                <div className='image' style={{ backgroundImage: `url(${marg})` }} />
-
-
-                <div className='image' style={{ backgroundImage: `url(${mojito})` }} />
-
-            </div> */}
+            
         </>
     );
 }
