@@ -46,7 +46,7 @@ h1{
 
 .new-cocktail-form{
   border-radius: 5px;
-  background-color: #f5eeee;
+  background-color: rgb(93, 112, 131);
   padding: 25px;
   width: 25%;
   margin: 400px auto;
@@ -57,4 +57,12 @@ textarea{
   width: 100%;
   border-radius: 8px;
   margin-top: 5px;
+}
+
+.edit-cocktail-form{
+  border-radius: 5px;
+  background-color: rgb(93, 112, 131);
+    padding: 25px;
+    width: 15%;
+    margin: 400px auto;
 }
