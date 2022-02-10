@@ -93,3 +93,8 @@ textarea{
     height: 800px;
     justify-content: center;
 }
+
+li{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
+}
