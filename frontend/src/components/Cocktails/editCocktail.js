@@ -17,6 +17,8 @@ const EditCocktailForm = ({ hideForm }) => {
     const [directions, setDirections] = useState(cocktails?.directions);
     const [imgUrl, setImgUrl] = useState(cocktails?.imgUrl);
 
+
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -29,14 +31,14 @@ const EditCocktailForm = ({ hideForm }) => {
         }
         let updatedCocktail = await dispatch(editCocktail(cocktail, id))
         if (updatedCocktail) {
-            history.push(`/cocktails/${id}`)
+            history.push(`/cocktails`)
         }
     }
 
     const cancelSubmit = (e) => {
         e.preventDefault()
 
-        return history.push(`/cocktails/${id}`)
+        return history.push(`/cocktails`)
     }
 
     return (
@@ -54,14 +56,14 @@ const EditCocktailForm = ({ hideForm }) => {
                         <option key={ele}>{ele}</option>
                     )}
                 </select>
-                <input
+                <textarea
                     type='text'
                     required
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}
                     placeholder="ingredients"
                 />
-                <input
+                <textarea
                     type='text'
                     required
                     value={directions}
