@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const DrinkList = sequelize.define('DrinkList', {
-    name: DataTypes.STRING,
     userId: {
       allowNull:false,
       references: {model: 'Users'},
@@ -9,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     cocktailId: {
       references: {model: 'Cocktails'},
-      type:DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.INTEGER,
     },
-    imgUrl: DataTypes.STRING
   }, {});
   DrinkList.associate = function(models) {
     DrinkList.belongsTo(models.User, {foreignKey: 'userId'})
-    // DrinkList.hasMany(models.Cocktail, {foreignKey: 'cocktailId'})
+    DrinkList.belongsTo(models.Cocktail, {foreignKey: 'cocktailId'})
+
   };
   return DrinkList;
 };
