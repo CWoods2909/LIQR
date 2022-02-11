@@ -9,6 +9,7 @@ import Cocktails from './components/Cocktails'
 import CocktailForm from './components/Cocktails/newCocktail';
 import SingleCocktail from './components/Cocktails/singleCocktail';
 import EditCocktailForm from './components/Cocktails/editCocktail'
+import DrinkList from './components/DrinkList/drinkList';
 
 
 function App() {
@@ -46,6 +47,10 @@ function App() {
 
           <Route path='/cocktails/:id'>
           <EditCocktailForm />
+          </Route>
+
+          <Route path='/'>
+            <DrinkList />
           </Route>
         </Switch>
       )}

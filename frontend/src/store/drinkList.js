@@ -1,7 +1,8 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf';
 
 const ADD_COCKTAIL = 'cocktail/ADD_COCKTAIL';
 const DELETE_COCKTAIL_FROM_LIST = 'cocktail/DELETE_COCKTAIL_FROM_LIST';
+const GET_LIST = 'cocktail/GET_LIST'
 
 const addToList = (cocktail) => {
     return {
@@ -17,9 +18,27 @@ const deleteFromList = (cocktail) => {
     };
 };
 
+const getList = (cocktails) => {
+    return{
+        type: GET_LIST,
+        cocktails
+    }
+}
+
+//thunk for whole list
+export const getDrinkList = (userId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/drinklist/${userId}`)
+
+    if(response.ok){
+        const cocktails = await response.json();
+        dispatch(getList(cocktails))
+        return cocktails
+    }
+}
+
 //thunk to add a cocktail to drink list
 export const addCocktailToList = (cocktail, id) => async (dispatch) => {
-    const response = await csrfFetch('/api/', {
+    const response = await csrfFetch('/api/drinklist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cocktail)
@@ -34,7 +53,7 @@ export const addCocktailToList = (cocktail, id) => async (dispatch) => {
 
 //thunk to delete from drink list
 export const deleteFromDrinkList = (id) => async (dispatch) => {
-    const response = await csrfFetch('/api/', {
+    const response = await csrfFetch('/api/drinklist', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     });
@@ -60,6 +79,13 @@ const drinkListReducer = (state = initialState, action) => {
             const newState = {...state};
             delete newState[action.cocktail.id];
             return newState
+        }
+        case GET_LIST:{
+            const newState = {...state}
+            const cocktailList = {}
+            action.cocktails.forEach((cocktail) => (cocktailList[cocktail.id] = cocktail))
+            newState.cocktails = cocktailList
+            return newState;
         }
         default:
             return state

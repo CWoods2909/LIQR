@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import { getCocktail, removeCocktail, } from "../../store/cocktails";
 import EditCocktailForm from './editCocktail'
-
+import AddToList from '../DrinkList/addDrink'
 
 const SingleCocktail = () => {
     const { id } = useParams();
@@ -45,6 +45,7 @@ const SingleCocktail = () => {
                 <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
                 <button type='button' onClick={editForm}>Edit</button>
                 {closeForm && (<EditCocktailForm openForm={openForm} />)}
+                <button type='button' onClick={AddToList}></button>
             </div>
         )
     } else {
