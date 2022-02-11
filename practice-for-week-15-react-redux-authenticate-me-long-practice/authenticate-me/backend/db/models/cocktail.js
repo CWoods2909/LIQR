@@ -26,8 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     imgUrl: DataTypes.STRING(500)
   }, {});
   Cocktail.associate = function(models) {
-    Cocktail.belongsTo(models.User, {foreignKey: 'userId'})
-    // Cocktail.belongsTo(models.DrinkList, {foreignKey: 'cocktailId'})
+    Cocktail.belongsTo(models.User, {foreignKey: 'userId'}) 
+    Cocktail.hasMany(models.DrinkList, {foreignKey: 'cocktailId'})
+
+    Cocktail.belongsToMany(models.User, {foreignKey: 'cocktailId', otherKey: 'userId', through: 'DrinkList'})
   };
   return Cocktail;
 };

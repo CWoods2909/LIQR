@@ -88,7 +88,9 @@ module.exports = (sequelize, DataTypes) => {
     
     User.associate = function (models) {
       User.hasMany(models.Cocktail, {foreignKey: 'userId'})
-      User.hasOne(models.DrinkList, {foreignKey: 'userId'})
+      User.hasMany(models.DrinkList, {foreignKey: 'userId'}) 
+
+      User.belongsToMany(models.Cocktail, {foreignKey:'userId', otherKey: 'cocktailId', through: 'DrinkList'});
     };
   
     return User;
