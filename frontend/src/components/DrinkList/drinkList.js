@@ -9,7 +9,7 @@ const DrinkList = () => {
     const user = useSelector((state) => state.session.user);
     const drinks = useSelector((state) => Object.values(state.drinkList.cocktails))
     const history = useHistory()
-
+    // console.log(drinks);
     useEffect(() =>{
         dispatch(getDrinkList(user.id))
         dispatch(getCocktails())
@@ -17,12 +17,16 @@ const DrinkList = () => {
 
     if(user){
         return(
+            
             <div className="main-list-outer">
         <h1>Drink List</h1>
         <div className="drinkList-container">
             {drinks?.map(({Cocktail, id, cocktailId})=>(
-                
+                <>
+                {console.log(Cocktail, id, cocktailId)};
                 <NavLink key={id} className='drinkList-values' to={`/cocktails/${cocktailId}`}>{Cocktail.name}</NavLink>
+                </>
+
                 ))}
         </div>
         </div>

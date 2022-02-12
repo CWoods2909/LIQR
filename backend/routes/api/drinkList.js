@@ -24,7 +24,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
     const { id } = req.params
     const list = await DrinkList.findAll({
         where: {
-            id
+            userId:id
         },
         include: { model: Cocktail }
     })

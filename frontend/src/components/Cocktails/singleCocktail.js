@@ -29,7 +29,7 @@ const SingleCocktail = () => {
         history.push('/cocktails')
     }
 
-    if (cocktail.userId === user.id) {
+    if (user) {
         return (
             <div className="single-cocktail">
                 <div
@@ -45,7 +45,7 @@ const SingleCocktail = () => {
                 <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
                 <button type='button' onClick={editForm}>Edit</button>
                 {closeForm && (<EditCocktailForm openForm={openForm} />)}
-                <button type='button' onClick={AddToList}></button>
+                <button type='button' onClick={AddToList}>Add</button>
             </div>
         )
     } else {
