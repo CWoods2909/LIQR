@@ -25,11 +25,11 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
           
-          <Route path='/signup'>
+          <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
 
@@ -37,7 +37,7 @@ function App() {
             <Cocktails />
           </Route>
 
-          <Route path='/cocktails/new'>
+          <Route exact path='/cocktails/new'>
             <CocktailForm />
           </Route>
 
@@ -45,13 +45,18 @@ function App() {
             <SingleCocktail />
           </Route>
 
-          <Route path='/cocktails/:id'>
+          <Route exact path='/cocktails/:id'>
           <EditCocktailForm />
           </Route>
 
-          <Route path='/'>
+          <Route exact path='/'>
             <DrinkList />
           </Route>
+
+          <Route>
+            Sorry this is not the route youre looking for.
+          </Route>
+
         </Switch>
       )}
     </>

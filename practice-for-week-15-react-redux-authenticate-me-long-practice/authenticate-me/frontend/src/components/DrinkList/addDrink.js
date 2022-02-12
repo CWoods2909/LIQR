@@ -13,7 +13,7 @@ const AddToList = () => {
 
         let added = await dispatch(addCocktailToList({cocktailId:id, userId:user.id}))
         if (added) {
-            window.alert('Success!!!!!!!!!!!')
+            window.alert('Cheers.  Your drink was saved for later.')
         }
     }
 
