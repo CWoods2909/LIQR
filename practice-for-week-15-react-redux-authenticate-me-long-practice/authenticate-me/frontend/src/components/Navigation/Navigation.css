@@ -30,7 +30,9 @@ a:hover{
     /* justify-content: space-around; */
 }
 
-
+h2{
+    margin-left: 200px;
+}
 /* Profile button */
 .menu-button{
     margin-left: auto;
