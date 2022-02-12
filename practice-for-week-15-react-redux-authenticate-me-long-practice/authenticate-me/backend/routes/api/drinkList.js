@@ -15,7 +15,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
 //delete cocktail
 router.delete('/:id', asyncHandler(async (req, res) => {
-    const deleteCocktail = await Cocktail.destroy({ where: { id: req.params.id } })
+    const deleteCocktail = await DrinkList.destroy({ where: { cocktailId: req.params.id } })
     return res.json(deleteCocktail)
 }));
 

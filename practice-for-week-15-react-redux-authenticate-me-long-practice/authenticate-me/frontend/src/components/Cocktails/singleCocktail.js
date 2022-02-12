@@ -29,7 +29,7 @@ const SingleCocktail = () => {
         history.push('/cocktails')
     }
 
-    if (user) {
+    if (user.id === cocktail.userId) {
         return (
             <div className="single-cocktail">
                 <div
@@ -61,7 +61,7 @@ const SingleCocktail = () => {
                     <li>Ingredients: {cocktail?.ingredients}</li>
                     <li>How to make: {cocktail?.directions}</li>
                     </ul>
-                
+                    <AddToList />
             </div>
         )
     }
