@@ -11,8 +11,11 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
+            <>
             <ProfileButton user={sessionUser} />
-
+            <NavLink to='/cocktails'>Cocktails</NavLink>
+            <NavLink to='/cocktails/new'>Add Cocktail</NavLink>
+            </>
         );
     } else {
         sessionLinks = (
@@ -32,8 +35,7 @@ function Navigation({ isLoaded }) {
                 <h2 className='nav-bar-header'>LIQR</h2>
                 <div className="nav-bar-right">
                     {isLoaded && sessionLinks}
-                    <NavLink to='/cocktails'>Cocktails</NavLink>
-                    <NavLink to='/cocktails/new'>Add Cocktail</NavLink>
+                    
                 </div>
             </div>
             

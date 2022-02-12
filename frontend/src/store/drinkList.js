@@ -53,7 +53,7 @@ export const addCocktailToList = (payload) => async (dispatch) => {
 
 //thunk to delete from drink list
 export const deleteFromDrinkList = (id) => async (dispatch) => {
-    const response = await csrfFetch('/api/drinklist', {
+    const response = await csrfFetch(`/api/drinklist/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     });
