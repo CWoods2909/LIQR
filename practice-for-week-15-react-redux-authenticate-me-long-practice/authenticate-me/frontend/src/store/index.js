@@ -1,13 +1,14 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import cocktailReducer from './cocktails';
-
+import drinkListReducer from './drinkList'
 import sessionReducer from './session';
 
 
 const rootReducer = combineReducers({
     session:sessionReducer,
-    cocktail:cocktailReducer
+    cocktail:cocktailReducer,
+    drinkList:drinkListReducer
 });
 
 
