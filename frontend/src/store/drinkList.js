@@ -83,7 +83,7 @@ const drinkListReducer = (state = initialState, action) => {
         case GET_LIST:{
             const newState = {...state}
             const cocktailList = {}
-            action.cocktails.forEach((cocktail) => (cocktailList[cocktail.id] = cocktail))
+            action.cocktails.forEach((cocktail) => (cocktailList[cocktail.Cocktail.id] = cocktail.Cocktail))
             newState.cocktails = cocktailList
             return newState;
         }
