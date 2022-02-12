@@ -64,12 +64,16 @@ a:hover{
     justify-content: space-around;
 }
 
-html{
-    height: auto;
-    background-color: rgb(131, 175, 177);
-    margin: 0;
-}
+/* html{ */
+    /* height: auto; */
+    /* background-color: rgb(131, 175, 177); */
+    /* margin: 0; */
+    /* background: url() repeat */
+/* }   */
 
 body{
     margin:0px;
+    height: auto;
+    /* background-color: rgb(131, 175, 177); */
+    background: url(../../images/tiny-squares.png);
 }
