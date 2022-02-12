@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addCocktailToList } from '../../store/drinkList';
 
-const AddToList = ({ cocktail }) => {
+const AddToList = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const singleCocktail = useSelector(state => state.cocktail.cocktails[id])
+    const user = useSelector((state) => state.session.user)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        let added = await dispatch(addCocktailToList(singleCocktail))
+        let added = await dispatch(addCocktailToList({cocktailId:id, userId:user.id}))
         if (added) {
             window.alert('Success!!!!!!!!!!!')
         }

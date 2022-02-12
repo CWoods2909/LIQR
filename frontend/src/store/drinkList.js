@@ -37,16 +37,16 @@ export const getDrinkList = (userId) => async (dispatch) => {
 }
 
 //thunk to add a cocktail to drink list
-export const addCocktailToList = (cocktail, id) => async (dispatch) => {
+export const addCocktailToList = (payload) => async (dispatch) => {
     const response = await csrfFetch('/api/drinklist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(cocktail)
+        body: JSON.stringify(payload)
     });
 
     if (response.ok) {
         const cocktail = await response.json()
-        dispatch(addToList(cocktail, id))
+        dispatch(addToList(cocktail))
         return cocktail
     };
 };

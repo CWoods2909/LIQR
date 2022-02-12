@@ -9,7 +9,7 @@ const { restoreUser } = require('../../utils/auth');
 
 //add a drink to drinklist
 router.post('/', asyncHandler(async (req, res) => {
-    const addToDrinkList = await Cocktail.create(req.body)
+    const addToDrinkList = await DrinkList.create(req.body)
     return res.json(addToDrinkList)
 }))
 

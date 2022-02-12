@@ -45,7 +45,7 @@ const SingleCocktail = () => {
                 <button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
                 <button type='button' onClick={editForm}>Edit</button>
                 {closeForm && (<EditCocktailForm openForm={openForm} />)}
-                <button type='button' onClick={AddToList}>Add</button>
+                <AddToList />
             </div>
         )
     } else {
