@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
         <>
             <div className="nav-bar-container">
                 <NavLink exact to="/">Home</NavLink>
-                <h2 className='nav-bar-header'>LIQR</h2>
+                <h2 className='nav-bar-header'>Welcome to LIQR</h2>
                 <div className="nav-bar-right">
                     {isLoaded && sessionLinks}
                     
