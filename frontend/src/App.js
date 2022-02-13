@@ -10,6 +10,7 @@ import CocktailForm from './components/Cocktails/newCocktail';
 import SingleCocktail from './components/Cocktails/singleCocktail';
 import EditCocktailForm from './components/Cocktails/editCocktail'
 import DrinkList from './components/DrinkList/drinkList';
+import ErrorPage from './components/ErrorPage/error';
 
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
           </Route>
 
           <Route>
-            Sorry this is not the route youre looking for.
+            <ErrorPage />
           </Route>
 
         </Switch>

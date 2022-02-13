@@ -38,7 +38,9 @@ function Navigation({ isLoaded }) {
                     
                 </div>
             </div>
-            
+            <div className="footer">
+                <p>Website created by Charles Woods</p>
+            </div>
         </>
     );
 }
