@@ -30,8 +30,8 @@ a:hover{
     /* justify-content: space-around; */
 }
 
-h2{
-    margin-left: 200px;
+.nav-bar-header{
+    margin-left: 220px;
 }
 /* Profile button */
 .menu-button{
@@ -43,7 +43,7 @@ h2{
 
 .profile-dropdown{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: small;
+    font-size: large;
     position: absolute;
     right: 20%;
     top: 0;
