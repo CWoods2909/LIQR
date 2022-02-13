@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
-// const { User } = require('../../db/models');
+const { DrinkList } = require('../../db/models')
 const { Cocktail } = require('../../db/models')
 
 
@@ -26,8 +26,13 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 //delete cocktail
 router.delete('/:id', asyncHandler(async (req, res) => {
-    const deleteCocktail = await Cocktail.destroy({ where: { id: req.params.id } })
-    return res.json(deleteCocktail)
+    const deleteCocktail = await Cocktail.findOne({ where: { id: req.params.id } })
+    const favDrink = await DrinkList.findAll({ where: { cocktailId: req.params.id } })
+    favDrink.forEach (async(drink) => {
+        await drink.destroy();
+    });
+    await deleteCocktail.destroy()
+    return res.json({ message: 'success' })
 }));
 
 //edit a cocktail
