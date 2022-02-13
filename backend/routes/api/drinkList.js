@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
-const { User } = require('../../db/models');
 const { Cocktail } = require('../../db/models')
 const { DrinkList } = require('../../db/models');
-const { restoreUser } = require('../../utils/auth');
+
 
 
 //add a drink to drinklist
