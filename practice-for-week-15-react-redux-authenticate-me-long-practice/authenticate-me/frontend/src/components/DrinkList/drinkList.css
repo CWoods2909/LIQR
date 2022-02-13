@@ -1,0 +1,27 @@
+.drinkList-container {
+    display: grid;
+    align-items: center;
+    width: 30%;
+    height: 800px;
+    justify-content: center;
+    overflow: auto;
+    background-color: rgb(226, 204, 176);
+    border-radius: 15%;
+    outline: 5px solid rgb(93, 112, 131);
+    outline-offset: -5px;
+    margin-left: 20px;
+    margin-top: 100px;
+    float: left;
+}
+.welcome{
+    width: 40%;
+    display: flex;
+    font-size: xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+.drinkList-header{
+    border-bottom: solid;
+    border-radius: 5px;
+    
+}

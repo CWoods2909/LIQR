@@ -4,6 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { getDrinkList } from '../../store/drinkList';
 import { getCocktails } from '../../store/cocktails';
 import DeleteSingleCocktail from './deleteDrink'
+import './drinkList.css'
 
 const DrinkList = () => {
     const dispatch = useDispatch();
@@ -27,14 +28,22 @@ const DrinkList = () => {
         return(
             
             <div className="main-list-outer">
-        <h1>Drink List</h1>
+        
         <div className="drinkList-container">
+            <div className='drinkList-header'>
+            <h2>*Favorite cocktails*</h2>
+            </div>
             {drinks?.map((drinks)=>(
                 <>
                 <NavLink key={drinks.id} className='drinkList-values' to={`/cocktails/${drinks.id}`}>{drinks.name}</NavLink>
                 <DeleteSingleCocktail id={drinks.id}/>
                 </>
                 ))}
+        </div>
+        <div className="welcome">
+        <p>
+            Welcome to liqr.  The worlds leading authority on all things liquor.  Please browse the website and make a drink, add one to your favorites list or just look through the many user created cocktails.  Enjoy!
+        </p>
         </div>
         </div>
     )
