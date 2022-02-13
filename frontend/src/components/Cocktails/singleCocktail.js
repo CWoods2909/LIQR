@@ -29,7 +29,6 @@ const SingleCocktail = () => {
         history.push('/cocktails')
     }
 
-    // if (user.id === cocktail.userId) {
         return (
             <div className="single-cocktail">
                 <div
@@ -49,23 +48,6 @@ const SingleCocktail = () => {
                 <AddToList />
             </div>
         )
-    // } else {
-    //     return (
-    //         <div className="single-cocktail">
-    //             <div
-    //                 className="single-cocktail-image"
-    //                 style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
-    //             ></div>
-    //                 <h2>{cocktail?.name}</h2>
-    //                 <ul className="cocktail-details">
-    //                 <li>Liquor Type: {cocktail?.liquorType}</li>
-    //                 <li>Ingredients: {cocktail?.ingredients}</li>
-    //                 <li>How to make: {cocktail?.directions}</li>
-    //                 </ul>
-    //                 <AddToList />
-    //         </div>
-    //     )
-    // }
 }
 
 export default SingleCocktail

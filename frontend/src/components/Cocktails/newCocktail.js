@@ -11,7 +11,7 @@ const CocktailForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
-    
+    const cocktail = useSelector((state) => Object.values(state.cocktail.cocktails))
     
     const [name, setName] = useState('');
     const [liquorType, setLiquorType] = useState(liquor[0]);
@@ -28,6 +28,8 @@ const CocktailForm = () => {
         if(ingredients.length === 0) validate.push('Please provide the ingredients for your cocktail.');
         if(directions.length === 0) validate.push('Please provide the directions for your cocktail.');
         setErrors(validate)
+        if(cocktail?.find((drink) => drink.name === name))validate.push('That cocktail name already exists.')
+
     },[name,ingredients,directions])
     
     if(!user){
