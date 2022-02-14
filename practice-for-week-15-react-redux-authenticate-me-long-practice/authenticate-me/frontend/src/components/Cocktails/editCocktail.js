@@ -48,7 +48,7 @@ const EditCocktailForm = ({ openForm }) => {
     },[name,ingredients,directions])
 
     return (
-        <section className='edit-cocktail-container'>
+        <div className='edit-cocktail-container'>
             <form className='edit-cocktail-form'>
                 <h2>Edit Your Cocktail</h2>
                 <ul className='errors'>
@@ -91,7 +91,7 @@ const EditCocktailForm = ({ openForm }) => {
                 <button type='submit' onClick={handleSubmit} disabled={errors.length > 0}>Submit edit</button>
                 <button type='button' onClick={cancelSubmit}>Cancel</button>
             </form>
-        </section>
+        </div>
     )
 }
 

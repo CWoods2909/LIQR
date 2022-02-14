@@ -29,25 +29,31 @@ const SingleCocktail = () => {
         history.push('/cocktails')
     }
 
-        return (
+    return (
+        <>
             <div className="single-cocktail">
                 <div
                     className="single-cocktail-image"
                     style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
                 ></div>
-                <h2>{cocktail?.name}</h2>
-                <ul className="cocktail-details">
-                <li>Liquor Type: {cocktail?.liquorType}</li>
-                <li>Ingredients: {cocktail?.ingredients}</li>
-                <li>How To Make: {cocktail?.directions}</li>
-                </ul>
-                {(user.id === cocktail.userId) &&
-                (<div><button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
-                <button type='button' onClick={editForm}>Edit</button></div>)}
+                <div className="info-container">
+                    <h2>{cocktail?.name}</h2>
+                    <ul className="cocktail-details">
+                        <li>Liquor Type: {cocktail?.liquorType}</li>
+                        <li>Ingredients: {cocktail?.ingredients}</li>
+                        <li>How To Make: {cocktail?.directions}</li>
+                    </ul>
+                <div className="button-styles">
+                    {(user.id === cocktail.userId) &&
+                        (<div><button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
+                            <button type='button' onClick={editForm}>Edit</button></div>)}
+                            <AddToList />
+                </div>
                 {closeForm && (<EditCocktailForm openForm={openForm} />)}
-                <AddToList />
+                        </div>
             </div>
-        )
+        </>
+    )
 }
 
 export default SingleCocktail
