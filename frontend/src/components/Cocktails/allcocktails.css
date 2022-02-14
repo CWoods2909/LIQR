@@ -40,9 +40,10 @@
   align-items: center;
 }
 
-h1{
-  margin-left: 46%;
+.cocktails-header{
+  display: flex;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: center;
 }
 
 .new-cocktail-form{
@@ -116,7 +117,7 @@ h2{
 }
 .edit-cocktail-container{
   position: absolute;
-  top: 200px;
+  top: 150px;
   right: 0;
 }
 .info-container{
