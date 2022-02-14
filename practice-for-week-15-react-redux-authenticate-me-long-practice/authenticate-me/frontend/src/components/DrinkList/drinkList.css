@@ -1,15 +1,15 @@
 .drinkList-container {
     display: grid;
     align-items: center;
-    width: 30%;
-    height: 800px;
+    width: 28%;
+    height: 35vw;
     justify-content: center;
     overflow: auto;
     background-color: rgb(226, 204, 176);
     border-radius: 2%;
-    outline: 5px solid rgb(93, 112, 131);
+    outline: 2px solid rgb(93, 112, 131);
     outline-offset: -5px;
-    margin-left: 20px;
+    margin-left: 60px;
     margin-top: 100px;
     float: left;
 }
@@ -19,6 +19,13 @@
     font-size: xx-large;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: black;
+    
+}
+.words{
+    margin-left: 100px;
+    border: solid rgb(93, 112, 131) 2px;
+    border-radius: 10px;
+    padding: 5px;
 }
 .drinkList-header {
     border-bottom: solid;
@@ -45,7 +52,7 @@
 }
 
 .bar-image-container{
-    height: 700px;
+    height: 30vw;
     width: 60%;
     float: right;
 }
@@ -57,6 +64,5 @@
     background-repeat:no-repeat;
     width: 90%;
     height: 100%;
-    justify-content: center;
     border-radius: 5%;
 }

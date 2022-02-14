@@ -6,7 +6,7 @@ function ErrorPage () {
 
     return(
         <div className='error-page-container'>
-            <h1>Sorry, looks like someone had a bad time.</h1>
+            <h1 className='error-text'>...Sorry, looks like someone had a bad time.</h1>
         <div className='gif' 
         style={{backgroundImage: `url('${hangover}')`}}
         ></div>

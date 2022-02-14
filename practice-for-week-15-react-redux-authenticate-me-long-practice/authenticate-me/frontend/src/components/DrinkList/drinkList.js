@@ -32,7 +32,7 @@ const DrinkList = () => {
 
                 <div className="drinkList-container">
                     <div className='drinkList-header'>
-                        <h2>*Favorite cocktails*</h2>
+                        <h2>Favorite Cocktails</h2>
                     </div>
                     {drinks?.map((drinks) => (
                         <>
@@ -42,8 +42,8 @@ const DrinkList = () => {
                     ))}
                 </div>
                 <div className="welcome">
-                    <p>
-                        Welcome to liqr.  The worlds leading authority on all things liquor.  Please browse the website and make a drink, add one to your favorites list or just look through the many user created cocktails.  Enjoy!
+                    <p className='words'>
+                        Welcome to LIQR.  The worlds leading authority on all things liquor.  Please browse the website and make a drink, add one to your favorites list or just look through the many user created cocktails.  Enjoy!
                     </p>
                 </div>
             </div>

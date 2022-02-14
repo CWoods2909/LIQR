@@ -21,7 +21,7 @@ const AllCocktails = () => {
 
     return (
         <>
-            <h1>Cocktails</h1>
+            <h1 className='cocktails-header'>Cocktails</h1>
             <div className="drinkContainer">
                 {cocktails?.map(({ id, name,liquorType }) => (
                     <div className="drinkList">
