@@ -34,7 +34,7 @@ const SingleCocktail = () => {
             <div className="single-cocktail">
                 <div
                     className="single-cocktail-image"
-                    style={{ backgroundImage: `url('${cocktail?.imgUrl}')` }}
+                    style={{backgroundImage: `url('${cocktail?.imgUrl}')`}}
                 ></div>
                 <div className="info-container">
                     <h2>{cocktail?.name}</h2>
