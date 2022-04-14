@@ -1,9 +1,9 @@
 .login-form {
     border-radius: 5px;
-    background-color: rgb(93, 112, 131);
+    background-color: rgba(195, 121, 36, 0.859);
     padding: 25px;
-    width: 15%;
-    margin: 400px auto;
+    width: auto;
+    height: auto;
 }
 
 input {
@@ -16,8 +16,17 @@ input {
     resize: vertical;
 }
 
+.login-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../images/drinks.webp');
+}
+
 button {
-    background-color: rgb(151, 112, 96);
+    background-color: rgb(71, 69, 69);
     color: white;
     padding: 5px 20px;
     margin-left: 5px;

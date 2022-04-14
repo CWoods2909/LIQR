@@ -33,38 +33,40 @@ function LoginFormPage() {
 
 
     return (
-        <div className='login-form'>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, idx) =>
-                        <li key={error}>{error}</li>
-                    )}
-                </ul>
-                <div className='row'>
-                    <label>
-                        <input
-                            type='text'
-                            value={credential}
-                            onChange={(e) => setCredential(e.target.value)}
-                            placeholder='Username/Email'
-                        />
-                    </label>
-                </div>
-                <div className='row'>
-                    <label>
-                        <input
-                            type='password'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder='Password'
-                        />
-                    </label>
-                </div>
-                <button type='submit'>Log In</button> 
-                <NavLink to="/signup"><button>Sign Up</button></NavLink>
-                <DemoUser />
-            </form>
-        </div >
+        <div className='login-container'>
+            <div className='login-form'>
+                <form onSubmit={handleSubmit}>
+                    <ul>
+                        {errors.map((error, idx) =>
+                            <li key={error}>{error}</li>
+                        )}
+                    </ul>
+                    <div className='row'>
+                        <label>
+                            <input
+                                type='text'
+                                value={credential}
+                                onChange={(e) => setCredential(e.target.value)}
+                                placeholder='Username/Email'
+                            />
+                        </label>
+                    </div>
+                    <div className='row'>
+                        <label>
+                            <input
+                                type='password'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder='Password'
+                            />
+                        </label>
+                    </div>
+                    <button type='submit'>Log In</button>
+                    <NavLink to="/signup"><button>Sign Up</button></NavLink>
+                    <DemoUser />
+                </form>
+            </div >
+        </div>
     )
 
 }

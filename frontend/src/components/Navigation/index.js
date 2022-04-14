@@ -22,17 +22,7 @@ function Navigation({ isLoaded }) {
             </>
         );
     } 
-    // else {
-    //     sessionLinks = (
-    //         <>
-    //             <NavLink to="/login">Log In</NavLink>
-    //             <NavLink to="/signup"><button>Sign Up</button></
-    //             NavLink>
-    //             <DemoUser />
-    //         </>
-    //     );
-    // }
-
+    
     return (
         <>
             <div className="nav-bar-container">
