@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import DemoUser from './demoUser';
+import { AiOutlineHome } from 'react-icons/ai';
+import {BiDrink} from 'react-icons/bi'
+import {CgAddR} from 'react-icons/cg'
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -13,9 +16,9 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
             <ProfileButton user={sessionUser} />
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink to='/cocktails'>Cocktails</NavLink>
-            <NavLink to='/cocktails/new'>Add Cocktail</NavLink>
+            <NavLink exact to="/"><AiOutlineHome className='home-icon'/></NavLink>
+            <NavLink to='/cocktails'><BiDrink className='cocktail-icon'/></NavLink>
+            <NavLink to='/cocktails/new'><CgAddR className='add-cocktail-icon'/></NavLink>
             </>
         );
     } 
@@ -33,9 +36,7 @@ function Navigation({ isLoaded }) {
     return (
         <>
             <div className="nav-bar-container">
-                <div className="nav-bar-right">
                     {isLoaded && sessionLinks}
-                </div>
             </div>
         </>
     );

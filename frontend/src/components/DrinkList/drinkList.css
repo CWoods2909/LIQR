@@ -1,36 +1,50 @@
 .drinkList-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 28%;
+    width: 30vw;
     height: 35vw;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: auto;
     background-color: rgb(226, 204, 176);
     border-radius: 2%;
     outline: 2px solid rgb(93, 112, 131);
     outline-offset: -5px;
-    margin-left: 60px;
-    margin-top: 100px;
-    float: left;
 }
-.welcome {
-    width: 40%;
+
+.main-list-outer{
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    font-size: xx-large;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.welcome-container{
+    width: auto;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome {
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: black;
     
 }
 .words{
-    margin-left: 100px;
-    border: solid rgb(93, 112, 131) 2px;
-    border-radius: 10px;
+    height: 10vh;
+    width: auto;
+    background-color: aliceblue;
     padding: 5px;
+    overflow: auto;
 }
-.drinkList-header {
-    border-bottom: solid;
-    border-radius: 5px;
-}
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -49,20 +63,4 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
-
-.bar-image-container{
-    height: 30vw;
-    width: 60%;
-    float: right;
-}
-
-.bar-picture{
-    margin-top: 60px;
-    background-position: center;
-    background-size: cover;
-    background-repeat:no-repeat;
-    width: 90%;
-    height: 100%;
-    border-radius: 5%;
 }
