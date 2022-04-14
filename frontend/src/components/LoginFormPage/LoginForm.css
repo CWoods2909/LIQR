@@ -24,6 +24,5 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    /* float: inline-start; */
     height: fit-content;
 }

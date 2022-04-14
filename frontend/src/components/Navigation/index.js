@@ -13,33 +13,29 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
             <ProfileButton user={sessionUser} />
+            <NavLink exact to="/">Home</NavLink>
             <NavLink to='/cocktails'>Cocktails</NavLink>
             <NavLink to='/cocktails/new'>Add Cocktail</NavLink>
             </>
         );
-    } else {
-        sessionLinks = (
-            <>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">Sign Up</
-                NavLink>
-                <DemoUser />
-            </>
-        );
-    }
+    } 
+    // else {
+    //     sessionLinks = (
+    //         <>
+    //             <NavLink to="/login">Log In</NavLink>
+    //             <NavLink to="/signup"><button>Sign Up</button></
+    //             NavLink>
+    //             <DemoUser />
+    //         </>
+    //     );
+    // }
 
     return (
         <>
             <div className="nav-bar-container">
-                <NavLink exact to="/">Home</NavLink>
-                <h2 className='nav-bar-header'>Welcome to LIQR</h2>
                 <div className="nav-bar-right">
                     {isLoaded && sessionLinks}
-                    
                 </div>
-            </div>
-            <div className="footer">
-                <p>Website created by Charles Woods</p>
             </div>
         </>
     );

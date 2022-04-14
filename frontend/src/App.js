@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/login">
             <LoginFormPage />
           </Route>
-          
+
           <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
@@ -47,7 +47,7 @@ function App() {
           </Route>
 
           <Route exact path='/cocktails/:id'>
-          <EditCocktailForm />
+            <EditCocktailForm />
           </Route>
 
           <Route exact path='/'>
