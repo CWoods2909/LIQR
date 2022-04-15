@@ -40,12 +40,14 @@ const DrinkList = () => {
                     <div className='drinkList-header'>
                         <h2>Favorite Cocktails</h2>
                     </div>
-                    {drinks?.map((drinks) => (
+                    {!drinks.length ? <h3 className='empty-list'>Looks like your list is empty.  Add some drinks</h3> :
+                    drinks?.map((drinks) => (
                         <>
-                            <NavLink key={drinks.id} className='drinkList-values' to={`/cocktails/${drinks.id}`}>{drinks.name}</NavLink>
-                            <DeleteSingleCocktail id={drinks.id} />
+                        <NavLink key={drinks.id} className='drinkList-values' to={`/cocktails/${drinks.id}`}>{drinks.name}</NavLink>
+                        <DeleteSingleCocktail id={drinks.id} />
                         </>
-                    ))}
+                        ))
+                    }
                 </div>
                 <img src='../../../img/aperol-vintage.jpg' className='aperol'/>
             </div>

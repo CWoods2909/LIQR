@@ -23,8 +23,9 @@ const AllCocktails = () => {
         <>
             <h1 className='cocktails-header'>Cocktails</h1>
             <div className="drinkContainer">
-                {cocktails?.map(({ id, name,liquorType }) => (
+                {cocktails?.map(({ id, name,liquorType, imgUrl }) => (
                     <div className="drinkList">
+                        <img src={imgUrl} className='cocktail-image' />
                         <NavLink key={id} className='drinks' to={`/cocktails/${id}`}>{name}</NavLink>
                         <p className='liquor-type'>{liquorType}</p>
                     </div>
