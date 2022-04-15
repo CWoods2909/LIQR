@@ -17,6 +17,9 @@ const AllCocktails = () => {
         <Redirect to='/' />
     )
 
+    const handleBrokenImg = (event) => {
+        event.target.src = "https://www.dailyactor.com/wp-content/uploads/2013/05/the-great-gatsby-leonardo-dicaprio.jpg"
+    }
 
 
     return (
@@ -25,7 +28,7 @@ const AllCocktails = () => {
             <div className="drinkContainer">
                 {cocktails?.map(({ id, name,liquorType, imgUrl }) => (
                     <div className="drinkList">
-                        <img src={imgUrl} className='cocktail-image' />
+                        <img src={imgUrl} className='cocktail-image' onError={handleBrokenImg}/>
                         <NavLink key={id} className='drinks' to={`/cocktails/${id}`}>{name}</NavLink>
                         <p className='liquor-type'>{liquorType}</p>
                     </div>

@@ -8,14 +8,18 @@ import AddToList from '../DrinkList/addDrink'
 const SingleCocktail = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const cocktail = useSelector(state => state.cocktail.cocktails[id])
-    const user = useSelector(state => state.session.user)
-
+    const cocktail = useSelector(state => state.cocktail?.cocktails[id])
+    const user = useSelector(state => state.session?.user)
     const history = useHistory()
 
     useEffect(() => {
-        dispatch(getCocktail(id))
-    }, [dispatch])
+        if (!id) return
+        (async() => {
+            await dispatch(getCocktail(id))
+        })()
+    }, [dispatch, id])
+    
+    
 
     const editForm = (e) => {
         openForm(true);
@@ -29,29 +33,30 @@ const SingleCocktail = () => {
         history.push('/cocktails')
     }
 
+    const handleBrokenImg = (event) => {
+        event.target.src = "https://www.dailyactor.com/wp-content/uploads/2013/05/the-great-gatsby-leonardo-dicaprio.jpg"
+    }
+
     return (
         <>
-            <div className="single-cocktail">
-                <div
-                    className="single-cocktail-image"
-                    style={{backgroundImage: `url('${cocktail?.imgUrl}')`}}
-                ></div>
+            
                 <div className="info-container">
-                    <h2>{cocktail?.name}</h2>
+                    <img src={cocktail?.imgUrl} alt='cocktail' className='single-cocktail-image' onError={handleBrokenImg}/>    
+                    <h2 className="cocktail-name-single">{cocktail?.name}</h2>
                     <ul className="cocktail-details">
                         <li>Liquor Type: {cocktail?.liquorType}</li>
                         <li>Ingredients: {cocktail?.ingredients}</li>
                         <li>How To Make: {cocktail?.directions}</li>
                     </ul>
                 <div className="button-styles">
-                    {(user.id === cocktail.userId) &&
+                    {user.id === cocktail?.userId &&
                         (<div><button type='button' onClick={() => handleDelete(cocktail.id)}>Delete</button>
                             <button type='button' onClick={editForm}>Edit</button></div>)}
                             <AddToList />
                 </div>
-                {closeForm && (<EditCocktailForm openForm={openForm} />)}
+                        {closeForm && (<EditCocktailForm openForm={openForm} />)}
                         </div>
-            </div>
+            
         </>
     )
 }

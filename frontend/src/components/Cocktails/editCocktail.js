@@ -45,7 +45,8 @@ const EditCocktailForm = ({ openForm }) => {
         if(ingredients.length === 0) validate.push('Please provide the ingredients for your cocktail.');
         if(directions.length === 0) validate.push('Please provide the directions for your cocktail.');
         setErrors(validate)
-    },[name,ingredients,directions])
+        if(imgUrl.length > 500) validate.push('Sorry, that image address is too long')
+    },[name,ingredients,directions, imgUrl])
 
     return (
         <div className='edit-cocktail-container'>

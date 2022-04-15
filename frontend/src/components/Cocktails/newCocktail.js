@@ -28,9 +28,10 @@ const CocktailForm = () => {
         if (ingredients.length === 0) validate.push('Please provide the ingredients for your cocktail.');
         if (directions.length === 0) validate.push('Please provide the directions for your cocktail.');
         setErrors(validate)
-        if (cocktail?.find((drink) => drink.name === name)) validate.push('That cocktail name already exists.')
+        if (cocktail?.find((drink) => drink.name.toLowerCase() === name.toLowerCase())) validate.push('That cocktail name already exists.')
+        if(imgUrl.length > 500) validate.push('Sorry, that image address is too long')
 
-    }, [name, ingredients, directions])
+    }, [name, ingredients, directions, imgUrl])
 
     if (!user) {
         return (

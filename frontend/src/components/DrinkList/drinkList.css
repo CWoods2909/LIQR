@@ -6,9 +6,31 @@
     height: 35vw;
     justify-content: flex-start;
     overflow: auto;
-    background-color: #fffefe;
+    background-color: white;
     box-shadow: -2px 2px rgb(151, 151, 151);
     border-radius: 2%;
+}
+
+.drinkList-header{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: underline;
+}
+
+.drinkList-header:hover{
+    cursor: default;
+}
+
+.drinkList-values{
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.drinkList-values:hover{
+    border: 1px solid blue;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    color: blue;
 }
 
 .main-list-outer{
@@ -43,10 +65,13 @@
     font-size: x-large;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: black;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     margin-bottom: 1%;
     border-radius: 5px;
+}
 
+.welcome:hover{
+    cursor: default;
 }
 .words{
     height: 10vh;
@@ -66,21 +91,3 @@
     width: auto;
 }
 
-::-webkit-scrollbar {
-    width: none;
-}
-
-/* Track */
-/* ::-webkit-scrollbar-track {
-    background: #ece8e800;
-} */
-
-/* Handle */
-/* ::-webkit-scrollbar-thumb {
-    background: rgba(136, 136, 136, 0);
-} */
-
-/* Handle on hover */
-/* ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-} */

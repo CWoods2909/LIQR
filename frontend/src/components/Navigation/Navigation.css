@@ -4,8 +4,7 @@
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
-    background-color: #ffffff;
-    
+    background-color: white;
 }
 
 a{
@@ -27,7 +26,7 @@ a{
 body{
     margin:0px;
     height: auto;
-    background-color: rgb(255, 237, 225);
+    background-color: #f6f7f8;
 }
 
 .home-icon:hover{
