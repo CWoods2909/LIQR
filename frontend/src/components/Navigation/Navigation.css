@@ -4,7 +4,7 @@
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
-    background-color: rgb(93, 112, 131);
+    background-color: #ffffff;
     
 }
 
@@ -27,5 +27,17 @@ a{
 body{
     margin:0px;
     height: auto;
+    background-color: rgb(255, 237, 225);
 }
 
+.home-icon:hover{
+    color: rgb(62, 99, 171);
+}
+
+.cocktail-icon:hover{
+    color: rgb(62, 99, 171);
+}
+
+.add-cocktail-icon:hover{
+    color: rgb(62, 99, 171);
+}

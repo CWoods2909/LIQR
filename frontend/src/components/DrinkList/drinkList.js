@@ -5,7 +5,6 @@ import { getDrinkList } from '../../store/drinkList';
 import { getCocktails } from '../../store/cocktails';
 import DeleteSingleCocktail from './deleteDrink'
 import './drinkList.css'
-import barImage from  '../../images/bar-image.jpg'
 
 const DrinkList = () => {
     const dispatch = useDispatch();
@@ -31,11 +30,12 @@ const DrinkList = () => {
             <div className='welcome-container'>
                 <div className="welcome">
                     <p className='words'>
-                        Welcome to LIQR.  The worlds leading authority on all things cocktail's.  Please browse the website and make a drink, add one to your favorites list or just look through the many user created cocktails.  Enjoy!
+                        Welcome to LIQR.  The worlds leading authority on all things cocktail's. 
                     </p>
                 </div>
             </div>
             <div className="main-list-outer">
+                <img src="../../../img/martini-vintage.jpg" className='martini'/>
                 <div className="drinkList-container">
                     <div className='drinkList-header'>
                         <h2>Favorite Cocktails</h2>
@@ -47,6 +47,7 @@ const DrinkList = () => {
                         </>
                     ))}
                 </div>
+                <img src='../../../img/aperol-vintage.jpg' className='aperol'/>
             </div>
         </>
     )
