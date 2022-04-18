@@ -37,11 +37,15 @@ const SingleCocktail = () => {
         event.target.src = "https://www.dailyactor.com/wp-content/uploads/2013/05/the-great-gatsby-leonardo-dicaprio.jpg"
     }
 
+
     return (
         <>
             
                 <div className="info-container">
+                    <div className="img-edit-form">
                     <img src={cocktail?.imgUrl} alt='cocktail' className='single-cocktail-image' onError={handleBrokenImg}/>    
+                    {closeForm && (<EditCocktailForm openForm={openForm} />)}
+                    </div>
                     <h2 className="cocktail-name-single">{cocktail?.name}</h2>
                     <ul className="cocktail-details">
                         <li>Liquor Type: {cocktail?.liquorType}</li>
@@ -54,7 +58,6 @@ const SingleCocktail = () => {
                             <button type='button' onClick={editForm}>Edit</button></div>)}
                             <AddToList />
                 </div>
-                        {closeForm && (<EditCocktailForm openForm={openForm} />)}
                         </div>
             
         </>
