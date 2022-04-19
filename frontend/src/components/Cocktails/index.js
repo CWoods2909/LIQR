@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink,Redirect } from 'react-router-dom';
 import { getCocktails } from '../../store/cocktails';
 import './allcocktails.css'
+import Search from '../Navigation/searchbar'
 
 const AllCocktails = () => {
     const dispatch = useDispatch();
@@ -24,7 +25,12 @@ const AllCocktails = () => {
 
     return (
         <>
+        <div className='allDrinks-header'>
+            <div className='search-container'>
+                    <Search />
+                </div>
             <h1 className='cocktails-header'>Cocktails</h1>
+        </div>
             <div className="drinkContainer">
                 {cocktails?.map(({ id, name,liquorType, imgUrl }) => (
                     <div className="drinkList">

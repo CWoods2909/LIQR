@@ -78,6 +78,11 @@ const CocktailForm = () => {
                             <li key={error}>{error}</li>
                         ))}
                     </ul>
+                    <select value={liquorType} onChange={(e) => setLiquorType(e.target.value)}>
+                        {liquor.map(ele =>
+                            <option key={ele}>{ele}</option>
+                        )}
+                    </select>
                     <input
                         type='text'
                         placeholder='Cocktail name'
@@ -103,13 +108,10 @@ const CocktailForm = () => {
                         value={imgUrl}
                         onChange={(e) => setImgUrl(e.target.value)}
                     />
-                    <select value={liquorType} onChange={(e) => setLiquorType(e.target.value)}>
-                        {liquor.map(ele =>
-                            <option key={ele}>{ele}</option>
-                        )}
-                    </select>
+                    <div className='add-cocktail-buttons'>
                     <button type='submit' disabled={errors.length > 0}>Create Cocktail</button>
                     <button type='button' onClick={cancelSubmit}>Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -1,11 +1,16 @@
 .nav-bar-container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
     background-color: white;
     border: 1px solid rgb(202, 202, 202);
+}
+
+.browse-icons{
+    display: flex;
+    align-items: center;
 }
 
 a{
@@ -21,7 +26,7 @@ a{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: medium;
     position: absolute;
-    left: 15%;
+    left: 18%;
 }
 
 body{
@@ -40,4 +45,72 @@ body{
 
 .add-cocktail-icon:hover{
     color: rgb(62, 99, 171);
+}
+
+.github2:hover, .linked2:hover{
+    color: rgb(62, 99, 171);
+}
+
+.search-input{
+    display: flex;
+    border: 0;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 18px;
+    height: 30px;
+    width: auto;
+}
+
+.search-results{
+    position: absolute;
+}
+
+.cancel-button{
+    transform: scale(1.4);
+}
+
+.cancel-button:hover{
+    cursor: pointer;
+}
+
+.cancel{
+    border: none;
+    background: none;
+}
+
+.search-results::-webkit-scrollbar{
+    display: none;
+}
+
+.search-results .search-item{
+    width: auto;
+    height: 2vh;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+
+.search-item{
+    text-decoration: none;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    background-color: rgb(194, 194, 194);
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-item:hover{
+    cursor: pointer;
+    background-color: rgb(133, 133, 191);
+    color: aliceblue;
+}
+
+.search-container{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
 }
