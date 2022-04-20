@@ -27,20 +27,20 @@ const DrinkList = () => {
 
     return (
         <>
-            <div className='welcome-container'>
-                <div className="welcome">
-                    <p className='words'>
-                        Welcome to LIQR.  The worlds leading authority on all things cocktail's. 
-                    </p>
-                </div>
-            </div>
+            {/* <div className='welcome-container'> */}
+                {/* <div className="welcome"> */}
+                    {/* <p className='words'> */}
+                        {/* Welcome to LIQR.  The worlds leading authority on all things cocktail's.  */}
+                    {/* </p> */}
+                {/* </div> */}
+            {/* </div> */}
             <div className="main-list-outer">
-                <img src="../../../img/martini-vintage.jpg" className='martini'/>
+                {/* <img src="../../../img/martini-vintage.jpg" className='martini'/> */}
                 <div className="drinkList-container">
                     <div className='drinkList-header'>
                         <h2>Favorite Cocktails</h2>
                     </div>
-                    {!drinks.length ? <h3 className='empty-list'>Looks like your list is empty.  Add some drinks</h3> :
+                    {!drinks.length ? <h3 className='empty-list'>Add some drinks</h3> :
                     drinks?.map((drinks) => (
                         <>
                         <NavLink key={drinks.id} className='drinkList-values' to={`/cocktails/${drinks.id}`}>{drinks.name}</NavLink>
@@ -49,7 +49,7 @@ const DrinkList = () => {
                         ))
                     }
                 </div>
-                <img src='../../../img/aperol-vintage.jpg' className='aperol'/>
+                {/* <img src='../../../img/aperol-vintage.jpg' className='aperol'/> */}
             </div>
         </>
     )

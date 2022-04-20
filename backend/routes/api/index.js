@@ -10,9 +10,4 @@ router.use('/cocktails', cocktailRouter);
 router.use('/users', usersRouter);
 router.use('/drinkList', drinkListRouter);
 
-
-
-
-
-
 module.exports = router;
